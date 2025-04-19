@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     
     --darker-color: hsl(0, 0%, 5%);
     --dark-color: hsl(0, 0%, 25%);
@@ -12,15 +13,28 @@
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--darker-color);
+
+    &:focus {
+        outline-color: var(--contrast-color);
+    }
 }
 
 h1, h4 {
     font-family: "Space Mono", monospace;
 }
 
-a {
+summary, button, a {
     color: inherit;
+    background-color: inherit;
     text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+@media screen and (pointer: fine) {
+    a:hover {
+        text-decoration: underline var(--contrast-color) 0.2rem;
+    } 
 }
 
 body {
@@ -70,9 +84,93 @@ header {
 
     & .contact {
         flex: 2;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+
+        & ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+
+            & li {
+                display: flex;
+                column-gap: 1rem;
+
+                & img {
+                    width: 20px;
+                    height: 20px;
+                    vertical-align: bottom;
+                }
+
+                & a {
+                    display: flex;
+                    column-gap: 0.5rem;
+
+                    & img {
+                        width: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    & > details {
+        position: fixed;
+        z-index: 1;
+        right: 1%;
+        top: 1%;
+        overflow: hidden;
+
+        &[open] {
+            &::details-content {
+                block-size: auto;
+            }
+        }
+
+        &::details-content {
+            block-size: 0;
+            transition: block-size 0.5s, content-visibility 0.5s;
+            transition-behavior: allow-discrete;
+        }
+        
+        & summary {
+            list-style: none;
+            padding: 0.5rem;
+            min-width: 36px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+
+            & img {
+                width: 30px;
+                vertical-align: bottom;
+            }
+        }
+
+        & .params {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 2rem;
+            padding-block: 1.5rem 0.2rem;
+
+            & > * {
+                padding: 0.5rem;
+                border-radius: 20px;
+                min-width: 36px;
+                aspect-ratio: 1;
+                text-align: center;
+
+                & img {
+                    width: 20px;
+                    vertical-align: bottom;
+                }
+            }
+
+            & a img {
+                width: 15px;
+                rotate: -45deg;
+                vertical-align: middle;
+            }
+        }
     }
 }
 
@@ -104,7 +202,6 @@ main {
         & summary {
             list-style: none;
             position: relative;
-            cursor: pointer;
 
             &::after {
                 content: '▶';
@@ -152,6 +249,16 @@ main {
                     color: var(--dark-color);
                     font-size: 1.1rem;
                     font-weight: 500;
+
+                    & a {
+                        display: flex;
+                        column-gap: 0.5rem;
+                        max-width: 110px;
+                        
+                        & img {
+                            width: 10px;
+                        }
+                    }
 
                     &:last-of-type {
                         text-align: end;
