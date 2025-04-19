@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    --darker-color: hsl(0, 0%, 5%);
+    --dark-color: hsl(0, 0%, 25%);
+    --light-color: hsl(0, 0%, 95%);
+    --contrast-color: hsl(348, 83%, 47%);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--darker-color);
+}
+
+h1, h4 {
+    font-family: "Space Mono", monospace;
+}
+
+body {
+    background-color: var(--light-color);
+    width: 100svw;
+    min-height: 100svh;
+    overflow-x: hidden;
+    padding: 6rem;
+}
+
+header {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+
+    & .presentation {
+        flex: 3;
+
+        & h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        & h2 {
+            color: var(--contrast-color);
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+        }
+        
+        & p {
+            margin-top: 1rem;
+        }
+    }
+
+    & .contact {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+main {
+    & > section {
+        margin-bottom: 2rem;
+
+        & h3 {
+            text-transform: uppercase;
+            letter-spacing: 0.2ch;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--dark-color);
+            padding-bottom: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        & article {
+            margin-bottom: 1rem;
+
+            & .article-header {
+                display: flex;
+                flex-flow: column wrap;
+                max-height: 3.5rem;
+                margin-bottom: 0.3rem;
+
+                & h4 {
+                    color: var(--contrast-color);
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+
+                & h5 {
+                    color: var(--dark-color);
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+                & h5:not(:first-of-type) {
+                    text-align: end;
+                }
+            }
+            
+            & .article-content {
+                max-width: 90%;
+
+                & ul {
+                    list-style-position: inside;
+                }
+            }
+        }
+    }
+
+
+
+    & .skills {
+        & .skill-content {
+            margin-block: 1rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            list-style: none;
+
+            & li {
+                font-weight: 500;
+            }
+        }
+
+        & .languages .skill-content {
+            grid-template-columns: repeat(2, 1fr);
+
+            & li {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                & p:first-of-type {
+                    font-weight: 500;
+                }
+
+                & p:last-of-type {
+                    font-weight: 400;
+                    color: var(--dark-color)
+                }
+            }
+        }
+    }
+}
