@@ -283,6 +283,7 @@ main {
                 border-bottom: 1px solid var(--text-color);
                 padding-bottom: 0.2rem;
                 margin-bottom: 1rem;
+                transition: border-bottom 0.5s;
             }
         }
 
@@ -313,6 +314,7 @@ main {
                     color: var(--text-color-alt);
                     font-size: 1.1rem;
                     font-weight: 500;
+                    transition: color 0.5s;
 
                     & a {
                         display: flex;
@@ -375,7 +377,8 @@ main {
                 & li {
                     & p:last-of-type {
                         font-weight: 400;
-                        color: var(--text-color-alt)
+                        color: var(--text-color-alt);
+                        transition: color 0.5s;
                     }
                 }
             }
