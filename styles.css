@@ -53,7 +53,7 @@ body {
 body:has(.toggle-theme input:checked)  {
     --text-color: hsl(0, 0%, 95%);
     --text-color-alt: hsl(0, 0%, 75%);
-    --bg-color: hsl(0, 0%, 5%);
+    --bg-color: hsl(0, 0%, 10%);
 }
 
 header {
@@ -334,7 +334,7 @@ main {
                     &:last-of-type {
                         text-align: end;
                         @media screen and (max-width: 768px) {
-                            text-align: left;
+                            text-align: start;
                         }
                     }
                 }
